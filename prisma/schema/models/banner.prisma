@@ -1,4 +1,21 @@
-model banner{
+model Banner{
 id    String @id @default(uuid())
-    name String
+imageId String
+image   Asset  @relation(fields: [imageId], references: [id], onDelete: Cascade)
+title String
+subtitle String
+tecnology String[]
+description String
+resumeUrl String
+socialLinks SocialLink[]
+ file String
+}
+
+model SocialLink {
+  id       String @id @default(uuid())
+  href     String
+  label    String
+
+  bannerId String
+  banner   Banner @relation(fields: [bannerId], references: [id], onDelete: Cascade)
 }

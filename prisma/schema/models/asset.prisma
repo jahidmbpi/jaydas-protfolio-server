@@ -1,0 +1,7 @@
+model Asset {
+  id        String   @id @default(uuid())
+  url       String
+  type      String   
+  createdAt DateTime @default(now())
+  banners   Banner[] 
+}
